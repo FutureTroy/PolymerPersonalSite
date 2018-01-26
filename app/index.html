@@ -1,0 +1,664 @@
+<!doctype html>
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="Troy Brown Designs">
+  <title>Troy Marcus Brown</title>
+
+  <!-- Place favicon.ico in the `app/` directory -->
+
+  <!-- Chrome for Android theme color -->
+  <meta name="theme-color" content="#2E3AA1">
+
+  <!-- Web Application Manifest -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Tile color for Win8 -->
+  <meta name="msapplication-TileColor" content="#3372DF">
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="PSK">
+  <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Troy Brown Designs">
+  <link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png">
+
+  <!-- Tile icon for Win8 (144x144) -->
+  <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+
+  <!-- build:css styles/main.css -->
+  <link rel="stylesheet" href="styles/golden-goose.css">
+  <!-- endbuild-->
+
+  <!-- build:js bower_components/webcomponentsjs/webcomponents-lite.min.js -->
+  <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+  <!-- endbuild -->
+
+
+
+
+  <!-- Because this project uses vulcanize this should be your only html import
+       in this file. All other imports should go in elements.html -->
+  <link rel="import" href="elements/elements.html">
+  <link rel="import" href="bower_components/paper-card/paper-card.html">
+  <link rel="import" href="bower_components/paper-button/paper-button.html">
+  <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
+  <link rel="import" href="bower_components/iron-collapse/iron-collapse.html">
+  <link rel="import" href="bower_components/paper-checkbox/paper-checkbox.html"
+
+
+
+  <!-- For shared styles, shared-styles.html import in elements.html -->
+  <style is="custom-style" include="shared-styles">
+
+    #latest-project-image{
+      width: 100%;
+      --iron-image-width: 100%;
+      height: 100%;
+      --iron-image-height: 100%;
+    }
+  </style>
+</head>
+
+<body unresolved>
+  <!-- build:remove -->
+  <span id="browser-sync-binding"></span>
+  <!-- endbuild -->
+
+  <template is="dom-bind" id="app">
+
+    <paper-drawer-panel id="paperDrawerPanel" responsive-width="840px">
+      <!-- Drawer Scroll Header Panel -->
+      <paper-scroll-header-panel drawer fixed>
+
+        <!-- Drawer Toolbar -->
+        <paper-toolbar id="drawerToolbar" class="medium-tall" >
+          <!--<span class="menu-name">Troy Brown with Logo</span>-->
+          <iron-image id="coverimage" src="./toolbarHero.png" sizing="cover" fade class="fit"></iron-image>
+        </paper-toolbar>
+
+        <!-- Drawer Content -->
+        <paper-menu class="app-menu" attr-for-selected="data-route" selected="[[route]]">
+          <a data-route="home" href="{{baseUrl}}">
+            <iron-icon icon="home"></iron-icon>
+            <span>HOME</span>
+          </a>
+
+          <a data-route="users" href="{{baseUrl}}users">
+            <iron-icon icon="description"></iron-icon>
+            <span>RESUME</span>
+            <iron-icon icon="launch"></iron-icon>
+          </a>
+
+          <a data-route="contact" href="{{baseUrl}}contact">
+            <iron-icon icon="dashboard"></iron-icon>
+            <span>PROJECTS</span>
+          </a>
+
+          <a data-route="contact" href="{{baseUrl}}contact">
+            <iron-icon icon="supervisor-account"></iron-icon>
+            <span>SOCIAL</span>
+            <iron-icon icon="expand-more"></iron-icon>
+          </a>
+
+
+        </paper-menu>
+      </paper-scroll-header-panel>
+
+      <!-- Main Area -->
+      <paper-scroll-header-panel main id="headerPanelMain" condenses keep-condensed-header>
+        <!-- Main Toolbar -->
+        <paper-toolbar id="mainToolbar" class="tall">
+          <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
+
+          <span class="space"></span>
+
+          <!-- Toolbar icons -->
+          <paper-icon-button icon="info"></paper-icon-button>
+          <paper-icon-button icon="feedback"></paper-icon-button>
+
+          <!-- Application name -->
+          <div class="middle middle-container">
+            <div class="app-name">Troy Brown</div>
+          </div>
+
+          <!-- Application sub title -->
+          <div class="bottom bottom-container">
+            <div class="bottom-title">Software Engineering and Graphic Designs</div>
+          </div>
+        </paper-toolbar>
+
+        <!-- Main Content -->
+        <div class="content">
+          <iron-pages attr-for-selected="data-route" selected="{{route}}">
+            <section data-route="home">
+              
+            <paper-card heading="An informal introduction..." id="topCardHeaderColor" image="./intrographic.png" class="white" fadeImage="true">
+                <!--<div class="card-content">
+                  An Informal Introduction...
+                  <paper-icon-button icon="info-outline" ></paper-icon-button>
+
+                </div>-->
+                <div class="card-actions">
+                  <!--<paper-button>Share</paper-button>
+                  <paper-button>Explore</paper-button>
+                  -->
+
+                  <!--<div style="padding: 5px 0px 20px 0px">-->
+                  <div class="horizontal justified">
+                  <p>I’m a California native with a love for <b>Technology</b> and <b>Design</b>
+                  
+
+                  <paper-icon-button icon="expand-more" title="more info" onclick="_toggle()" style="float:right;"></paper-icon-button>
+                  </p>
+                  </div>
+
+                  <!--
+                  <paper-button onclick="_toggle()" style="float: right;">
+                    Read More
+                    <iron-icon icon="expand-more" title="more info"  >
+                    </iron-icon>
+                    
+                  </paper-button>
+                  -->
+
+                  <iron-collapse id="more-info" style="width:100%;">
+                    <p>I am currently a Senior attending  Georgia Southern University studying to receive my bachelor's degree in <b>Computer Science</b>. My passion for technology extends beyond just operating computers; My goal is to enlighten others through my work, both physically and digitally, in hopes to make their life a little easier. I am a positive personable individual who works well in team environments as well as by my self.</p>
+                  </iron-collapse>
+                  <script>
+                    function _toggle() {
+                      var moreInfo = document.getElementById('more-info');
+                      var iconButton = Polymer.dom(event).localTarget;
+                      iconButton.icon = moreInfo.opened ? 'expand-more'
+                                                        : 'expand-less';
+                      moreInfo.toggle();
+                    }
+                  </script>
+                </div>
+              </paper-card>
+
+
+
+
+              <style is="custom-style">
+              paper-button.socialbtn{
+                background-color: #1b2225;
+              }
+              </style>
+              <div id="social-array" class="horizontal justified">
+                <p>
+                  <paper-button class="socialbtn" raised><iron-icon icon="check"></iron-icon>linkedin</paper-button>
+                <paper-button class="socialbtn" raised><iron-icon icon="cloud-download"></iron-icon>github</paper-button>
+                <paper-button raised class="socialbtn"><iron-icon icon="mail"></iron-icon>email</paper-button>
+                </p>
+              </div>
+
+
+
+
+              <style is="custom-style">
+              .cafe-header { @apply(--paper-font-headline); }
+              .cafe-light { color: var(--paper-grey-600); }
+              .cafe-location {
+                float: right;
+                font-size: 15px;
+                vertical-align: middle;
+              }
+              .cafe-reserve { color: var(--google-blue-500); }
+              iron-icon.star {
+                --iron-icon-width: 16px;
+                --iron-icon-height: 16px;
+                color: var(--paper-amber-500);
+              }
+              iron-icon.star:last-of-type { color: var(--paper-grey-500); }
+              </style>
+                <paper-card image="./JOT.jpg">
+                  <div class="card-content">
+                    <div class="cafe-header">Jot Notes 
+                      <div class="cafe-location cafe-light">
+                        <span>Coming soon</span>
+                        <iron-icon icon="android"></iron-icon>
+                      </div>
+                    </div>
+                    <div class="cafe-rating">
+                      <iron-icon class="star" icon="star"></iron-icon>
+                      <iron-icon class="star" icon="star"></iron-icon>
+                      <iron-icon class="star" icon="star"></iron-icon>
+                      <iron-icon class="star" icon="star"></iron-icon>
+                      <iron-icon class="star" icon="star"></iron-icon>
+                    </div>
+                    <p>Habit Management Made Easy!</p>
+                    <p>This will soon have all the app's features!</p>
+                    <ul class="cafe-light">
+                      <li>For one, it can take notes!</li>                  
+                    </ul>
+                  </div>
+                  <div class="card-actions">
+                    <div class="horizontal justified">
+                      <p>Find out when it's out?
+                      <paper-button class="cafe-reserve" style="float: right;">Subscribe</paper-button>
+                      </p>
+                    </div>
+                    
+                  </div>
+                </paper-card>
+
+
+              <p></p>
+
+
+              <style is="custom-style">
+              .cafe-header { @apply(--paper-font-headline); }
+              .cafe-light { color: var(--paper-grey-600); }
+              .cafe-location {
+                float: right;
+                font-size: 15px;
+                vertical-align: middle;
+              }
+              .cafe-reserve { color: var(--google-blue-500); }
+              iron-icon.star {
+                --iron-icon-width: 16px;
+                --iron-icon-height: 16px;
+                color: var(--paper-amber-500);
+              }
+              iron-icon.star:last-of-type { color: var(--paper-grey-500); }
+              </style>
+                <paper-card image="./oarscreen.jpg">
+                  <div class="card-content">
+                    <div class="cafe-header">On A Roll 
+                      <div class="cafe-location cafe-light">
+                        <span>Coming soon</span>
+                        <iron-icon icon="android"></iron-icon>
+                      </div>
+                    </div>
+                    <div class="cafe-rating">
+                      <iron-icon class="star" icon="star"></iron-icon>
+                      <iron-icon class="star" icon="star"></iron-icon>
+                      <iron-icon class="star" icon="star"></iron-icon>
+                      <iron-icon class="star" icon="star"></iron-icon>
+                      <iron-icon class="star" icon="star"></iron-icon>
+                    </div>
+                    <p>Habit Management Made Easy!</p>
+                    <p>This will soon have all the app's features!</p>
+                    <ul class="cafe-light">
+                      <li>It keeps count when no one else can!</li>                  
+                    </ul>
+                  </div>
+                  <div class="card-actions">
+                    <div class="horizontal justified">
+                      <p>Find out when it's out?
+                      <paper-button class="cafe-reserve" style="float: right;">Subscribe</paper-button>
+                      </p>
+                    </div>
+                    
+                  </div>
+                </paper-card>
+
+
+
+              
+
+
+
+              <style is="custom-style" include="shared-styles">
+
+                #secondary-card-header{
+                  --paper-card-header-color:#ffffff;
+                }
+              </style>
+              <p></p>
+
+
+
+
+              <paper-material elevation="1">
+                <h1 class="page-title " tabindex="-1">Latests Work:</h1>
+
+                <h2> Polymer Framework</h2>
+                <div id="full-container">
+                  <iron-image id="latest-project-image" src="polymer-featured.jpg"></iron-image>
+
+                </div>
+
+                <p class="subhead">This includes:</p>
+                <my-list></my-list>
+
+                <!--<p>Web App Layouts: <a href="https://github.com/PolymerElements/app-layout-templates">layouts</a> collection. You can also <a href="http://polymerelements.github.io/app-layout-templates/">preview</a> them live.</p>-->
+              </paper-material>
+
+
+              <paper-material elevation="1">
+                <p>
+                <h3>There's more where that came from...</h3>
+                </p>
+                <div style="float: right;">
+                Check out more work in the projects section
+                <a data-route="contact" href="{{baseUrl}}contact">
+                  <paper-button class="primary" raised>
+                    <iron-icon icon="dashboard"></iron-icon>
+                    More Projects
+                  </paper-button>
+                </a>
+                </div>
+                <br><br>
+              </paper-material>
+
+
+            </section>
+
+            <section data-route="users">
+              <paper-material elevation="1">
+                <h1 class="page-title focus-target" tabindex="-1">Resume</h1>
+                <p>This is the users section</p>
+                <p>
+                <a href$="{{baseUrl}}users/Addy">Addy</a><br>
+                <a href$="{{baseUrl}}users/Rob">Rob</a><br>
+                <a href$="{{baseUrl}}users/Chuck">Chuck</a><br>
+                <a href$="{{baseUrl}}users/Sam">Sam</a><br>
+                </p>
+              </paper-material>
+
+              <p></p>
+
+              <style is="custom-style">
+                paper-card.rate { @apply(--layout-horizontal); }
+                .rate-image {
+                  width: 150px;
+                  height: 170px;
+                  background: url('http://neighborhood.jp/download/upload/CHECK-IP.jpg');
+                  background-size: cover;
+                }
+                .rate-content {
+                  @apply(--layout-flex);
+                  float: left;
+                }
+                .rate-header { @apply(--paper-font-headline); }
+                .rate-name { color: var(--paper-grey-600); margin: 10px 0; }
+                paper-icon-button.rate-icon {
+                  --iron-icon-fill-color: white;
+                  --iron-icon-stroke-color: var(--paper-grey-600);
+                }
+              </style>
+              <paper-card class="rate">
+                <div class="rate-content">
+                  <div class="card-content">
+                    <div class="rate-header">How cool is this?</div>
+                    <div class="rate-name">Neighborhood JP</div>
+                    <div>Carhartt Paper</div>
+                  </div>
+                  <div class="card-actions">
+                    <paper-icon-button class="rate-icon" icon="star"></paper-icon-button>
+                    <paper-icon-button class="rate-icon" icon="star"></paper-icon-button>
+                    <paper-icon-button class="rate-icon" icon="star"></paper-icon-button>
+                    <paper-icon-button class="rate-icon" icon="star"></paper-icon-button>
+                    <paper-icon-button class="rate-icon" icon="star"></paper-icon-button>
+                  </div>
+                </div>
+                <div class="rate-image"></div>
+              </paper-card>
+
+
+              <paper-material elevation="1">
+                <h1 class="page-title focus-target" tabindex="-1">Contact</h1>
+
+                <my-greeting class="focus-target" tabindex="-1"></my-greeting>
+                <p>This is the contact section</p>
+              </paper-material>
+
+              <paper-material elevation="1">
+                <h2 id="license">License</h2>
+                <p>Everything in this repo is BSD style license unless otherwise specified.</p>
+                <p>Copyright (c) 2015 The Polymer Authors. All rights reserved.</p>
+                <p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
+                <ul>
+                <li>Redistributions of source code must retain the above copyright
+                notice, this list of conditions and the following disclaimer.</li>
+                <li>Redistributions in binary form must reproduce the above
+                copyright notice, this list of conditions and the following disclaimer
+                in the documentation and/or other materials provided with the
+                distribution.</li>
+                <li>Neither the name of Google Inc. nor the names of its
+                contributors may be used to endorse or promote products derived from
+                this software without specific prior written permission.</li>
+                </ul>
+                <p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+              </paper-material>
+
+            </section>
+
+            <section data-route="user-info">
+              <paper-material elevation="1">
+                <h1 class="page-title focus-target" tabindex="-1">User: {{params.name}}</h1>
+                <div>This is {{params.name}}'s section</div>
+              </paper-material>
+            </section>
+
+            <section data-route="contact">
+
+
+              <paper-card heading="" id="topCardHeaderColor" image="./JOT.jpg" class="white" fadeImage="true">
+         
+                <div class="card-content">
+                  <div >
+                    <p>
+                      <h3 class="bold"> Android Note-taking application Jot!</h3>
+
+                        <paper-button raised style="background: #018a7c;" style="float: right">Learn More</paper-button>
+
+                    </p>
+                  </div>
+                </div>
+              </paper-card>
+
+
+              <p></p>
+
+
+              <style is="custom-style">
+                #notes {
+                  @apply(--layout-vertical);
+                  @apply(--layout-wrap);
+                  height: 300px;
+                  width: 384px;
+                }
+
+                #notes > paper-card {
+                  box-sizing: border-box;
+                  max-width: 184px;
+                  margin: 4px;
+                  flex: 0 0 auto;
+                }
+              </style>
+              <div id="notes">
+                
+
+                <paper-card image="./oarscreen.jpg" class="amber" style="background: #f43a30" heading="">
+                  <div class="card-content" style="color: white;">On A Roll: Habit Management App</div>
+                  <div class="card-actions">
+                    
+                    <span>
+                      <paper-button style="color:white">More</paper-button>
+                      <paper-icon-button style="color: white;" icon="favorite-border"></paper-icon-button>
+                    </span>
+                  </div>
+                </paper-card>
+
+                <paper-card image="./JOT.jpg" class="amber" style="background: #008a7c" heading="">
+                  <div class="card-content" style="color: white">Jot Notes: Note taking made simple!</div>
+                  <div class="card-actions">
+                    
+                    <span>
+                      <paper-button style="color:white">More</paper-button>
+                      <paper-icon-button style="color: white;" icon="favorite-border"></paper-icon-button>
+                    </span>
+                  </div>
+                </paper-card>
+
+                <paper-card image="./BrownPublishing.jpg" class="amber" style="background: #8e3529" heading="">
+                  <div class="card-content" style="color: white">Brown Publishing Group
+                  </div>
+                  <div class="card-actions">
+                    
+                    <span>
+                      <paper-button style="color:white">More</paper-button>
+                      <paper-icon-button style="color: white;" icon="favorite-border"></paper-icon-button>
+                    </span>
+                  </div>
+                </paper-card>
+
+                <paper-card image="./polymer-featured.jpg" class="amber" style="background: #e12e68" heading="">
+                  <div class="card-content" style="color: white">Personal site built with Polymer</div>
+                  <div class="card-actions">
+                    
+                    <span>
+                      <paper-button style="color: white">More</paper-button>
+                      <paper-icon-button style="color: white;" icon="favorite-border"></paper-icon-button>
+                    </span>
+                  </div>
+                </paper-card>
+
+              </div>
+
+
+
+              <div id="notes">
+                
+
+                <paper-card image="./SBT.jpg" class="amber" style="background: #043e7e" heading="">
+                  <div class="card-content" style="color: white">Students of Business Technology @ GSU</div>
+                  <div class="card-actions">
+                    
+                    <span>
+                      <a href$="{{baseUrl}}contact/SBT">
+                        <paper-button style="color: white">More</paper-button>
+                      </a>
+                      <paper-icon-button style="color: white;" icon="favorite-border"></paper-icon-button>
+                    </span>
+                  </div>
+                </paper-card>
+
+                <paper-card image="./misskapsiProposal.jpg" class="amber" style="background: #ab2e3a" heading="">
+                  <div class="card-content" style="color: white">Kappa Alpha Psi Graphics Work</div>
+                  <div class="card-actions">
+                    
+                    <span>
+                      <paper-button style="color: white">More</paper-button>
+                      <paper-icon-button style="color: white;" icon="favorite-border"></paper-icon-button>
+                    </span>
+                  </div>
+                </paper-card>
+
+                <paper-card image="./patches.jpg" class="amber" style="background: #f36d4f" heading="">
+                  <div class="card-content" style="color: white">Personal logos and designs</div>
+                  <div class="card-actions">
+                    
+                    <span>
+                      <paper-button style="color:white">More</paper-button>
+                      <paper-icon-button style="color: white;" icon="favorite-border"></paper-icon-button>
+                    </span>
+                  </div>
+                </paper-card>
+
+                <paper-card image="./CardConcepts.jpg" class="amber" style="background: #393431" heading="">
+                  <div class="card-content" style="color: white">Business card and album art</div>
+                  <div class="card-actions">
+                    
+                    <span>
+                      <a href$="{{baseUrl}}users/Addy">
+                        <paper-button style="color:white">More</paper-button>
+                      </a>
+
+                      <paper-icon-button style="color: white;" icon="favorite-border"></paper-icon-button>
+                    </span>
+                  </div>
+                </paper-card>
+
+              </div>
+
+
+              <paper-material elevation="1">
+                <p>
+                <h3>Would you like work done for your own organization or project?</h3>
+                </p>
+                <div style="float: right;">
+                
+                <a data-route="contact" href="{{baseUrl}}contact">
+                  <paper-button class="primary" raised>
+                    <iron-icon icon="assignment-ind"></iron-icon>
+                    Request a Service
+                  </paper-button>
+                </a>
+                </div>
+                <br><br>
+              </paper-material>
+
+            </section>
+
+
+            <section data-route="contact-info">
+              <paper-material elevation="1">
+                <h1 class="page-title focus-target" tabindex="-1">{{params.name}}</h1>
+
+                <div id="full-container">
+                  <iron-image id="latest-project-image" src="{{params.name}}.jpg"></iron-image>
+                </div>
+
+                <div>This is {{params.name}}'s Project section section</div>
+              </paper-material>
+            </section>
+
+           
+
+
+          </iron-pages>
+        </div>
+      </paper-scroll-header-panel>
+    </paper-drawer-panel>
+
+    <paper-toast id="toast">
+      <span class="toast-hide-button" role="button" tabindex="0" onclick="app.$.toast.hide()">Ok</span>
+    </paper-toast>
+
+    <!-- Uncomment next block to enable Service Worker support (1/2) -->
+    <!--
+    <paper-toast id="caching-complete"
+                 duration="6000"
+                 text="Caching complete! This app will work offline.">
+    </paper-toast>
+
+    <platinum-sw-register auto-register
+                          clients-claim
+                          skip-waiting
+                          base-uri="bower_components/platinum-sw/bootstrap"
+                          on-service-worker-installed="displayInstalledToast">
+      <platinum-sw-cache default-cache-strategy="fastest"
+                         cache-config-file="cache-config.json">
+      </platinum-sw-cache>
+    </platinum-sw-register>
+    -->
+
+  </template>
+
+  <!-- build:js scripts/app.js -->
+  <script src="scripts/app.js"></script>
+  <!-- endbuild-->
+</body>
+
+</html>
